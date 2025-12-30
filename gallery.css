@@ -71,3 +71,20 @@ body {
     column-count: 1;
   }
 }
+
+
+#music-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#yt-play-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
