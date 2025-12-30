@@ -9,8 +9,16 @@ body {
   color: #fff;
   font-family: Arial, sans-serif;
   padding: 40px;
+  body::before,
+body::after {
+  content: none;
 }
 
+ul, li {
+  list-style: none;
+}
+
+  
 .title {
   text-align: center;
   font-size: 36px;
