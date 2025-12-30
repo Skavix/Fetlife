@@ -8,40 +8,37 @@
 <body>
 
   
-<!-- Music Player -->
-<div id="music-player">
-  <button id="play-music-btn">▶ Play Music</button>
-
-  <iframe
-    id="yt-music"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/-ucjrM28ffc?enablejsapi=1&rel=0"
-    title="YouTube music player"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
-
-
-  
-<button id="play">▶ Play Music</button>
+<button id="play-btn">▶ PLAY MUSIC</button>
 
 <iframe
-  id="yt"
+  id="yt-player"
   width="0"
   height="0"
-  src="https://www.youtube.com/embed/-ucjrM28ffc"
+  src="https://www.youtube.com/embed/-ucjrM28ffc?enablejsapi=1"
   allow="autoplay">
 </iframe>
 
-<script>
-  document.getElementById("play").onclick = () => {
-    document.getElementById("yt").src += "?autoplay=1";
-  };
-</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
+<script>
+  let player;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  function onPlayerReady() {
+    document.getElementById("play-btn").onclick = () => {
+      player.setVolume(50);   // 🔊 50% volume
+      player.playVideo();
+      document.getElementById("play-btn").style.display = "none";
+    };
+  }
+</script>
 
 
 
