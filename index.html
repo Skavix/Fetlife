@@ -11,11 +11,10 @@
   
   <h1 class="title">shuttersub</h1>
 
-<button id="play-btn">▶ PLAY MUSIC</button>
+<button id="music-btn">▶ PLAY MUSIC</button>
   
 <div class="divider"></div>
 
-  
 <iframe
   id="yt-player"
   width="0"
@@ -28,22 +27,24 @@
 
 <script>
   let player;
+  let playing = false;
 
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
+    player = new YT.Player('yt-player');
   }
 
-  function onPlayerReady() {
-    document.getElementById("play-btn").onclick = () => {
-      player.setVolume(50);   // 🔊 50% volume
+  document.getElementById("music-btn").onclick = () => {
+    if (!playing) {
+      player.setVolume(50);
       player.playVideo();
-      document.getElementById("play-btn").style.display = "none";
-    };
-  }
+      document.getElementById("music-btn").innerText = "⏸ PAUSE MUSIC";
+      playing = true;
+    } else {
+      player.pauseVideo();
+      document.getElementById("music-btn").innerText = "▶ PLAY MUSIC";
+      playing = false;
+    }
+  };
 </script>
 
 
