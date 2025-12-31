@@ -19,12 +19,18 @@ ul, li {
   list-style: none;
 }
 
-.line {
-    width: 100%;
-    height: 1px;
-   background-color: rgb(107, 107, 107);
+.divider {
+  width: 80%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 40px auto;
 }
 
+/* Extra space for bottom divider */
+.divider-bottom {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
 
 
   
