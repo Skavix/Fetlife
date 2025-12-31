@@ -15,41 +15,6 @@
   
 <div class="divider"></div>
 
-<iframe
-  id="yt-player"
-  width="0"
-  height="0"
-  src="https://www.youtube.com/embed/-ucjrM28ffc?enablejsapi=1"
-  allow="autoplay">
-</iframe>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-
-<script>
-  let player;
-  let playing = false;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player');
-  }
-
-  document.getElementById("music-btn").onclick = () => {
-    if (!playing) {
-      player.setVolume(50);
-      player.playVideo();
-      document.getElementById("music-btn").innerText = "⏸ PAUSE MUSIC";
-      playing = true;
-    } else {
-      player.pauseVideo();
-      document.getElementById("music-btn").innerText = "▶ PLAY MUSIC";
-      playing = false;
-    }
-  };
-</script>
-
-
-
-
   
 
   <div class="gallery">
@@ -156,5 +121,41 @@
 
   </div>
 
+<iframe
+  id="yt-player"
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/-ucjrM28ffc?enablejsapi=1"
+  allow="autoplay">
+</iframe>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+  let player;
+  let playing = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player');
+  }
+
+  document.getElementById("music-btn").onclick = () => {
+    if (!playing) {
+      player.setVolume(50);
+      player.playVideo();
+      document.getElementById("music-btn").innerText = "⏸ PAUSE MUSIC";
+      playing = true;
+    } else {
+      player.pauseVideo();
+      document.getElementById("music-btn").innerText = "▶ PLAY MUSIC";
+      playing = false;
+    }
+  };
+</script>
+
+
+
+
+  
 </body>
 </html>
